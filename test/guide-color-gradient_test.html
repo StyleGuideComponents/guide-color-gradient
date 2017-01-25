@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>guide-color-gradient test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../guide-color-gradient.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <guide-color-gradient></guide-color-gradient>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('guide-color-gradient', function() {
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'guide-color-gradient');
+        });
+      });
+    </script>
+  </body>
+</html>

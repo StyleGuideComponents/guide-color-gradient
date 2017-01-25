@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>guide-color-gradient demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../guide-color-gradient.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic guide-color-gradient demo</h3>
+      <demo-snippet>
+        <template>
+          <guide-color-gradient name="Mozilla red" start="#EA3B28" end="#C13832"></guide-color-gradient>
+        </template>
+      </demo-snippet>
+      <h3>Center the text</h3>
+      <demo-snippet>
+        <template>
+          <guide-color-gradient centered name="Orange" start="#ff9500" end="#ff5e3a"></guide-color-gradient>
+        </template>
+      </demo-snippet>
+      <h3>Providing a description</h3>
+      <demo-snippet>
+        <template>
+          <guide-color-gradient name="iOS Blue" start="#1AD6FD" end="#1D62F0" description="This is the main gradient used in some of the iOS promotional images"></guide-color-gradient>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

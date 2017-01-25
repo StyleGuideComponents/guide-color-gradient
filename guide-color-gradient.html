@@ -1,0 +1,119 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`<guide-color-gradient>` 
+Show a simple color gradient in your style guide
+
+Example:
+    <guide-color-gradient name="iOS Blue" start="#1AD6FD" end="#1D62F0" description="This is the main gradient used in some of the iOS promotional images"></guide-color-gradient>
+
+### Styling
+The following custom properties and mixins are available for styling:
+Custom property | Description | Default
+----------------|-------------|----------
+`--gradient-preview` | Mixin for styling the preview color | ``
+`--gradient-width` | Width of the preview color | `100px`
+`--gradient-height` | Height of the preview color | `100px`
+`--gradient-title` | Mixin for the title element | ``
+`--gradient-description` | Mixin for styling the description container | ``
+`--gradient-meta` | Mixin for styling the meta that shows the colors used | ``
+
+@group Style Guide Components
+@element guide-color-gradient
+@demo demo/index.html 
+-->
+
+<dom-module id="guide-color-gradient">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .gradient-preview {
+        width: var(--gradient-width, 100px);
+        height: var(--gradient-height, 100px);
+
+        @apply(--gradient-preview);
+      }
+
+      .gradient-title {
+        margin-top: 0;
+        margin-bottom: .5em;
+
+        @apply(--gradient-title);
+      }
+      
+      .gradient-description {
+        margin-top: .5em;
+        margin-bottom: 0;
+
+        @apply(--gradient-description);
+      }
+
+      .gradient-meta {
+        @apply(--gradient-meta);
+      }
+
+      .media {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .media-figure {
+        margin-right: 1em;
+      }
+
+      .media-body {
+        flex: 1;
+      }
+
+      .media-centered {
+        align-items: center;
+      }
+    </style>
+
+    <div class$="[[_getClass(centered)]] media">
+      <div class="media-figure gradient-preview" style="background: linear-gradient(to bottom, var(--gradient-start, [[start]]) 0%, var(--gradient-end, [[end]]) 100%);"></div>
+      <div class="media-body">
+        <h2 class="gradient-title">[[name]]</h2>
+        <strong class="gradient-meta">[[start]] to [[end]]</strong>
+        <template is="dom-if" if="{{description}}">
+          <p class="gradient-description">[[description]]</p>
+        </template>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'guide-color-gradient',
+
+      properties: {
+        name: {
+          type: String,
+        },
+        start: {
+          type: String,
+          value: '#fff',
+        },
+        end: {
+          type: String,
+          value: '#000',
+        },
+        description: {
+          type: String,
+        },
+        centered: {
+          type: Boolean,
+          value: false
+        }
+      },
+      _getClass: function(centered) {
+        return centered ? 'media-centered' : '';
+      }
+    });
+  </script>
+</dom-module>
